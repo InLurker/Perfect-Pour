@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Recipe" representedClassName=".Recipe" syncable="YES" codeGenerationType="class">
+        <attribute name="author" attributeType="String"/>
+        <attribute name="grind" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="ratio" attributeType="String"/>
+        <attribute name="temperature" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="steps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecipeStep" inverseName="parentRecipe" inverseEntity="RecipeStep"/>
+    </entity>
+    <entity name="RecipeStep" representedClassName=".RecipeStep" syncable="YES" codeGenerationType="class">
+        <attribute name="action" attributeType="String"/>
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="extra" optional="YES" attributeType="String"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="parentRecipe" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Recipe" inverseName="steps" inverseEntity="Recipe"/>
+    </entity>
+</model>
